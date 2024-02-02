@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input id="searchBox" type="text" placeholder="Weather in your city" spellcheck="false">
+            <button id="searchButton"><img id="searchImg" src="./Media/search.png"></button>
+        </div>
+        <div class="error">
+            <img id="error_icon" src="./Media/error.png">
+            <h1 class="error_message">Oops! Something went wrong.</h1>
+            <p>Invalid city name.</p>
+        </div>
+        <div class="weather">
+            <img class="weatherIcon" src="./Media/sun.png">
+            <h1 class="temp">30°c</h1>
+            <h2 class="cityName">Cairo</h2>
+            <div class="details">
+                <div class="col_1">
+                    <img id="details_image" src="./Media/humidity.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col_2">
+                    <img id="details_image" src="./Media/wind.png">
+                    <div>
+                        <p class="windSpeed">16 km/h</p>
+                        <p>Wind</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="./index.js"></script>
+</body>
+</html>
