@@ -1,6 +1,8 @@
 const api_key = "c23b41a0bf139e088b878159f13107b8";
 const api_link = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
+//API link : https://api.openweathermap.org/data/2.5/weather?q=London&appid=c23b41a0bf139e088b878159f13107b8
+
 const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchButton");
 const weatherImg = document.querySelector(".weatherIcon");
