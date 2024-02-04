@@ -27,9 +27,11 @@ async function check_weather(cityName){
         document.querySelector(".cityName").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-        document.querySelector(".windSpeed").innerHTML = data.wind.speed + " km/h";
+        document.querySelector(".windSpeed").innerHTML = data.wind.speed + " m/s";
         document.querySelector(".date").innerHTML = date.toLocaleDateString('en-uk', options);
-        document.querySelector(".time").innerHTML = date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0') + ":" +date.getSeconds().toString().padStart(2, '0');
+        document.querySelector(".time").innerHTML = date.getHours().toString().padStart(2, '0')
+                                                    + ":" + date.getMinutes().toString().padStart(2, '0')
+                                                    + ":" +date.getSeconds().toString().padStart(2, '0');
     
         if(data.weather[0].main == "Clouds"){
             weatherImg.src = "Media/clouds.png";

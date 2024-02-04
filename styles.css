@@ -124,3 +124,21 @@ p{
     font-size: 18px;
     color: grey;
 }
+.weather .date{
+    font-size: 20px;
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+.weather .time{
+    font-size: 20px;
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+.date_time{
+    display: flex;
+    padding-top: 15px;
+    margin: 0;
+    justify-content: space-around;
+}
