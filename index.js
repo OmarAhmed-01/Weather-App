@@ -16,12 +16,21 @@ async function check_weather(cityName){
         document.querySelector(".weather").style.display = "none";
     }
     else{
-       
+        console.log(data);
+        var date = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+        var UTC_offset = date.getTimezoneOffset();
+        date.setMinutes(date.getMinutes() + UTC_offset); 
+        var city_offset  = data.timezone/60;
+        date.setMinutes(date.getMinutes() + city_offset);
+        date.getSeconds().toString().padStart(2, '0');
         document.querySelector(".cityName").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         document.querySelector(".windSpeed").innerHTML = data.wind.speed + " km/h";
-
+        document.querySelector(".date").innerHTML = date.toLocaleDateString('en-uk', options);
+        document.querySelector(".time").innerHTML = date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0') + ":" +date.getSeconds().toString().padStart(2, '0');
+    
         if(data.weather[0].main == "Clouds"){
             weatherImg.src = "Media/clouds.png";
         }
@@ -41,6 +50,11 @@ async function check_weather(cityName){
         document.querySelector(".error").style.display = "none";
     }
 }
+document.addEventListener("keydown", event => {
+    if(event.key == "Enter"){
+        check_weather(searchBox.value);
+    }
+});
 searchBtn.addEventListener("click", event=>{
     check_weather(searchBox.value);  
 });

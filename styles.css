@@ -16,6 +16,7 @@ body{
     margin: 40px auto 0;
     padding: 40px 35px;
     text-align: center;
+    overflow: hidden;
 }
 .search{
     display: flex;
