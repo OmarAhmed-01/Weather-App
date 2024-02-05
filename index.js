@@ -1,5 +1,6 @@
 const api_key = "c23b41a0bf139e088b878159f13107b8";
 const api_link = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+var myDate = new Date();
 
 //API link : https://api.openweathermap.org/data/2.5/weather?q=London&appid=c23b41a0bf139e088b878159f13107b8
 
@@ -12,8 +13,22 @@ async function check_weather(cityName){
     var data = await response.json();
 
     if(response.status == 404){
-        document.querySelector(".error").style.display = "block";
-        document.querySelector(".weather").style.display = "none";
+        if(myDate.getHours()>=6 && myDate.getHours() < 18){
+            document.querySelector(".error").style.display = "block";
+            document.querySelector(".weather").style.display = "none";
+            document.querySelector("body").style.backgroundColor = "#6DB9EF";
+            document.querySelector(".card").style.backgroundColor = "white";
+            document.querySelector(".error .error_message").style.color = "black";
+            document.querySelector(".error p").style.color = "black";
+        }
+        else{
+            document.querySelector(".error").style.display = "block";
+            document.querySelector(".weather").style.display = "none";
+            document.querySelector("body").style.backgroundColor = "#252525";
+            document.querySelector(".card").style.backgroundColor = "#393053";
+            document.querySelector(".error .error_message").style.color = "#FCE666ff";
+            document.querySelector(".error p").style.color = "#FCE666ff";
+        }
     }
     else{
         console.log(data);
@@ -34,19 +49,169 @@ async function check_weather(cityName){
                                                     + ":" +date.getSeconds().toString().padStart(2, '0');
     
         if(data.weather[0].main == "Clouds"){
-            weatherImg.src = "Media/clouds.png";
+            if(date.getHours()>=6 && date.getHours() < 18)
+            {
+                weatherImg.src = "Media/cloudy.png";
+                document.querySelector("body").style.backgroundColor = "#6DB9EF";
+                document.querySelector(".card").style.backgroundColor = "white";
+                document.querySelector(".weather h1").style.color = "black";
+                document.querySelector(".weather h2").style.color = "black";
+                document.querySelector(".weather .date_time .date").style.color = "black";
+                document.querySelector(".weather .date_time .time").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "black";
+            }
+            else{
+                weatherImg.src = "Media/cloud.png";
+                document.querySelector("body").style.backgroundColor = "#252525";
+                document.querySelector(".card").style.backgroundColor = "#393053";
+                document.querySelector(".weather h1").style.color = "#FCE666ff";
+                document.querySelector(".weather h2").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .date").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .time").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "#FCE666ff";
+            }  
         }
         else if(data.weather[0].main == "Clear"){
-            weatherImg.src = "Media/sun.png";
+            if(date.getHours()>=6 && date.getHours() < 18)
+            {
+                weatherImg.src = "Media/sun.png";
+                document.querySelector("body").style.backgroundColor = "#6DB9EF";
+                document.querySelector(".card").style.backgroundColor = "white";
+                document.querySelector(".weather h1").style.color = "black";
+                document.querySelector(".weather h2").style.color = "black";
+                document.querySelector(".weather .date_time .date").style.color = "black";
+                document.querySelector(".weather .date_time .time").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "black";
+            }
+            else{
+                weatherImg.src = "Media/moon.png";
+                document.querySelector("body").style.backgroundColor = "#252525";
+                document.querySelector(".card").style.backgroundColor = "#393053";
+                document.querySelector(".weather h1").style.color = "#FCE666ff";
+                document.querySelector(".weather h2").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .date").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .time").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "#FCE666ff";
+            }  
         }
         else if(data.weather[0].main == "Rain"){
-            weatherImg.src = "Media/rain.png";
+            if(date.getHours()>=6 && date.getHours() < 18)
+            {
+                weatherImg.src = "Media/rainy-day.png";
+                document.querySelector("body").style.backgroundColor = "#6DB9EF";
+                document.querySelector(".card").style.backgroundColor = "white";
+                document.querySelector(".weather h1").style.color = "black";
+                document.querySelector(".weather h2").style.color = "black";
+                document.querySelector(".weather .date_time .date").style.color = "black";
+                document.querySelector(".weather .date_time .time").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "black";
+            }
+            else{
+                weatherImg.src = "Media/rainy-night.png";
+                document.querySelector("body").style.backgroundColor = "#252525";
+                document.querySelector(".card").style.backgroundColor = "#393053";
+                document.querySelector(".weather h1").style.color = "#FCE666ff";
+                document.querySelector(".weather h2").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .date").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .time").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "#FCE666ff";
+            } 
+            
         }
         else if(data.weather[0].main == "Drizzle"){
-            weatherImg.src = "Media/drizzle.png";
+            if(date.getHours()>=6 && date.getHours() < 18)
+            {
+                weatherImg.src = "Media/rainy-day.png";
+                document.querySelector("body").style.backgroundColor = "#6DB9EF";
+                document.querySelector(".card").style.backgroundColor = "white";
+                document.querySelector(".weather h1").style.color = "black";
+                document.querySelector(".weather h2").style.color = "black";
+                document.querySelector(".weather .date_time .date").style.color = "black";
+                document.querySelector(".weather .date_time .time").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "black";
+            }
+            else{
+                weatherImg.src = "Media/rainy-night.png";
+                document.querySelector("body").style.backgroundColor = "#252525";
+                document.querySelector(".card").style.backgroundColor = "#393053";
+                document.querySelector(".weather h1").style.color = "#FCE666ff";
+                document.querySelector(".weather h2").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .date").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .time").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "#FCE666ff";
+            } 
         }
         else if(data.weather[0].main == "Mist"){
-            weatherImg.src = "Media/mist.png";
+            if(date.getHours()>=6 && date.getHours() < 18)
+            {
+                weatherImg.src = "Media/mistM.png";
+                document.querySelector("body").style.backgroundColor = "#6DB9EF";
+                document.querySelector(".card").style.backgroundColor = "white";
+                document.querySelector(".weather h1").style.color = "black";
+                document.querySelector(".weather h2").style.color = "black";
+                document.querySelector(".weather .date_time .date").style.color = "black";
+                document.querySelector(".weather .date_time .time").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "black";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "black";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "black";
+            }
+            else{
+                weatherImg.src = "Media/mistN.png";
+                document.querySelector("body").style.backgroundColor = "#252525";
+                document.querySelector(".card").style.backgroundColor = "#393053";
+                document.querySelector(".weather h1").style.color = "#FCE666ff";
+                document.querySelector(".weather h2").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .date").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .time").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "#FCE666ff";
+            } 
+        }
+        else if (data.weather[0].main == "Snow"){
+            if(date.getHours()>=6 && date.getHours() < 18)
+            {
+                weatherImg.src = "Media/snowy.png";
+            }
+            else{
+                weatherImg.src = "Media/snowy.png";
+                document.querySelector("body").style.backgroundColor = "#252525";
+                document.querySelector(".card").style.backgroundColor = "#393053";
+                document.querySelector(".weather h1").style.color = "#FCE666ff";
+                document.querySelector(".weather h2").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .date").style.color = "#FCE666ff";
+                document.querySelector(".weather .date_time .time").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidity").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_1 .humidityText").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windSpeed").style.color = "#FCE666ff";
+                document.querySelector(".weather .details .col_2 .windText").style.color = "#FCE666ff";
+            } 
         }
         document.querySelector(".weather").style.display = "block";
         document.querySelector(".error").style.display = "none";
