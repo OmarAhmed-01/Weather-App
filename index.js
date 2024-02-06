@@ -14,20 +14,10 @@ async function check_weather(cityName){
 
     if(response.status == 404){
         if(myDate.getHours()>=6 && myDate.getHours() < 18){
-            document.querySelector(".error").style.display = "block";
-            document.querySelector(".weather").style.display = "none";
-            document.querySelector("body").style.backgroundColor = "#6DB9EF";
-            document.querySelector(".card").style.backgroundColor = "white";
-            document.querySelector(".error .error_message").style.color = "black";
-            document.querySelector(".error p").style.color = "black";
+            error_day();
         }
         else{
-            document.querySelector(".error").style.display = "block";
-            document.querySelector(".weather").style.display = "none";
-            document.querySelector("body").style.backgroundColor = "#252525";
-            document.querySelector(".card").style.backgroundColor = "#393053";
-            document.querySelector(".error .error_message").style.color = "#FCE666ff";
-            document.querySelector(".error p").style.color = "#FCE666ff";
+            error_night();
         }
     }
     else{
@@ -141,6 +131,22 @@ function night_cycle(){
     document.querySelector(".weather .details .col_1 .humidityText").style.color = "#FCE666ff";
     document.querySelector(".weather .details .col_2 .windSpeed").style.color = "#FCE666ff";
     document.querySelector(".weather .details .col_2 .windText").style.color = "#FCE666ff";
+}
+function error_day(){
+    document.querySelector(".error").style.display = "block";
+    document.querySelector(".weather").style.display = "none";
+    document.querySelector("body").style.backgroundColor = "#6DB9EF";
+    document.querySelector(".card").style.backgroundColor = "white";
+    document.querySelector(".error .error_message").style.color = "black";
+    document.querySelector(".error p").style.color = "black";
+}
+function error_night(){
+    document.querySelector(".error").style.display = "block";
+    document.querySelector(".weather").style.display = "none";
+    document.querySelector("body").style.backgroundColor = "#252525";
+    document.querySelector(".card").style.backgroundColor = "#393053";
+    document.querySelector(".error .error_message").style.color = "#FCE666ff";
+    document.querySelector(".error p").style.color = "#FCE666ff";
 }
 document.addEventListener("keydown", event => {
     if(event.key == "Enter"){
