@@ -142,3 +142,63 @@ p{
     margin: 0;
     justify-content: space-around;
 }
+@media (min-width: 319px) and (max-width: 480px){
+    .card{
+        border-radius: 20px;
+    }
+    #searchBox{
+        max-width: 90%;
+        margin-left: 0;
+        border-radius: 20px;
+    }
+    #searchBox::placeholder{
+        font-size: 15px;
+    }
+    #searchButton{
+        min-height: 50px;
+        min-width: 50px;
+        border-radius: 20px;
+    }
+    .weather .date_time{
+        display: flex;
+        justify-content: space-between;
+    }
+    .weather .date_time .date{
+        font-size: 15px;
+    }
+    .weather .date_time .time{
+        font-size: 15px;
+    }
+    .weatherIcon{
+        max-height: 150px;
+    }
+    .details{
+        display: flex;
+        justify-content: space-between;
+    }
+    #details_image{
+        max-height: 40px;
+    }
+    .col_1{
+        margin-left: -20px;
+    }
+    .col_2{
+        margin-right: -20px;
+    }
+    .humidity{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .humidityText{
+        font-size: 16px;
+        font-weight: lighter;
+    }
+    .windSpeed{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .windText{
+        font-size: 16px;
+        font-weight: lighter;
+    }
+}
